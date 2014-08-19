@@ -26,4 +26,18 @@ func TestIntSet(t *testing.T) {
 	if !y.Contains(1) {
 		t.Errorf("Should have had 1")
 	}
+	yString := y.String()
+	if "[1]" != yString {
+		t.Errorf("output was wrong: %v", yString)
+	}
+	y.Add(5)
+	yString = y.String()
+	if "[1 5]" != yString && "[5 1]" != yString {
+		t.Errorf("output was wrong: %v", yString)
+	}
+	z := IntSet{}
+	zString := z.String()
+	if "[]" != zString {
+		t.Errorf("output was wrong: %v", zString)
+	}
 }
